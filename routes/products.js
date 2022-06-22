@@ -2,7 +2,7 @@ const express = require('express')
 const products = express.Router()
 const db = require('../db/index');
 
-products.param("productId", (req, res, next, productId) => {
+products.param("productId", (req, res, next) => {
     const { productId } = req.params;
     next();
   });
