@@ -7,6 +7,10 @@ const authRouter = require('./routes/auth')
 app.use(['/login', '/register'], authRouter)
 const productsRouter = require('./routes/products')
 app.use('/products', productsRouter)
+const cartsRouter = require('./routes/carts')
+app.use('/carts', cartsRouter)
+const ordersRouter = require('./routes/orders')
+app.use('/orders', ordersRouter)
 
 const PORT = process.env.port || 3000;
 
