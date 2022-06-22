@@ -1,5 +1,9 @@
 const express = require('express')
 const auth = express.Router()
+const db = require("./db/index.js");
+
+const passport = require("passport");
+const bcrypt = require("bcrypt");
 
 auth.post("/login", async (req, res) => {
     const { email, password } = req.body;
