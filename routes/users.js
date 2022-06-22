@@ -1,6 +1,6 @@
 const express = require('express')
 const users = express.Router()
-const db = require("./db/index.js");
+const db = require('../db/index');
 
 users.param("userEmail", (req, res, next, userEmail) => {
     const { userEmail } = req.params;
