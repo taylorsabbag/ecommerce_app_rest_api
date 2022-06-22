@@ -9,8 +9,8 @@ create table IF NOT EXISTS products (
 create table IF NOT EXISTS users (
     email varchar(100) PRIMARY KEY NOT NULL check (email ~ '\A\S+@\S+\.\S+\Z'),
     password text,
-    first_name varchar(50),
-    last_name varchar(50),
+    first_name varchar(50) NOT NULL,
+    last_name varchar(50) NOT NULL,
     street_address varchar(150),
     city varchar(40),
     region varchar(40),
