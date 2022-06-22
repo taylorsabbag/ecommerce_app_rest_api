@@ -21,12 +21,12 @@ orders.get("/orders/:orderId", async (req, res) => {
     try {
       const query = "SELECT * FROM orders WHERE id = $1";
       const values = [orderId];
-      const product = await db.query(query, values);
+      const order = await db.query(query, values);
   
-      if (!product) {
-        return res.status(404).send("No product with that id");
+      if (!order) {
+        return res.status(404).send("No order with that id");
       }
-      res.send(product.rows[0]);
+      res.send(order.rows[0]);
     } catch (err) {
       console.log(err.stack);
       res.status(500).json({ msg: "Failed" });
@@ -50,10 +50,10 @@ orders.delete("/orders/:orderId", async (req, res) => {
     try {
       const query = "DELETE FROM orders WHERE id = $1";
       const values = [orderId];
-      const product = await db.query(query, values);
+      const order = await db.query(query, values);
   
-      if (!product) {
-        return res.send("No product with that id.");
+      if (!order) {
+        return res.send("No order with that id.");
       }
   
       res.sendStatus(204);

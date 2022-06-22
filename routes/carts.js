@@ -21,12 +21,12 @@ carts.get("/carts/:cartsId", async (req, res) => {
     try {
       const query = "SELECT * FROM carts WHERE id = $1";
       const values = [cartsId];
-      const product = await db.query(query, values);
+      const cart = await db.query(query, values);
   
-      if (!product) {
-        return res.status(404).send("No product with that id");
+      if (!cart) {
+        return res.status(404).send("No cart with that id");
       }
-      res.send(product.rows[0]);
+      res.send(cart.rows[0]);
     } catch (err) {
       console.log(err.stack);
       res.status(500).json({ msg: "Failed" });
@@ -50,10 +50,10 @@ carts.delete("/carts/:cartsId", async (req, res) => {
     try {
       const query = "DELETE FROM carts WHERE id = $1";
       const values = [cartsId];
-      const product = await db.query(query, values);
+      const cart = await db.query(query, values);
   
-      if (!product) {
-        return res.send("No product with that id.");
+      if (!cart) {
+        return res.send("No cart with that id.");
       }
   
       res.sendStatus(204);
